@@ -160,3 +160,66 @@
       </div>
       // div class="linea"****************************div--
     
+      <table class="table">
+        <tbody id="tablaBody">
+          <tr class="table-header" >
+            <th><h2>Cant</h2></th>
+            <th><h2>Descripcion</h2></th>
+            <th><h2>Total</h2></th>
+          </tr>
+
+      //falta codigo arriba hasta la linea 547 auto
+          <p class="saldo-text">
+            <b><span class="estado-deuda" id="estado"></span></b>
+          </p>
+          <div class="policy">
+            <p class="policy-title">
+              <b>IMPORTANTE:</b>
+            </p>
+
+            <p class="m-0">
+                Facturas Autosystema
+              <br/>
+                Contactos:
+                +847874848
+              <br/>
+                Siguenos en redes sociales
+              </p>
+          </div>
+<stript>
+          var nroBoletaElement = document.getElementById("nro_boleta_id").textcontent = nro_boleta;
+          var nroMesaElement = document.getElementById("nro_mesa_id").textcontent = nro_mesa;
+          var nroDireccion = document.getElementById("nro_direccion_id").textcontent = direc;
+
+          var fechaElement = document.getElementById("fechaR").textcontent = fecha;
+          var fecha_entregaElement = document.getElementById("hora").textcontent = fecha_entrega;
+
+          const propinaCell = document.getElementById("propinaCell");
+          var propinaElement = document.getElementById("propina");
+                //verifica si domi es igual a N/A
+
+              if (propina == "NaN") {
+                //si domi no es iva muestar el valor
+              propinaCell.style.display = "nome";
+                } else {
+              //si domi no es iva muestra el valor en el elemento
+              propinaElement.textcontent = propina;
+              }
+          const domicilioCell = document.getElementById("domicilioCell");
+          var domiElement = document.getElementById("domi");
+              //verifica si domi es igual a N/A
+
+              if (domi == "NaN") {
+                    //si domi es N/A oculat el elemento td que contiene la etiqueta
+                  domicilioCell.style.display = "none";
+            } else {
+                    //si domi no es N/A muestra el valor h2
+            domiElement.textcontent = domi;
+            }
+          var totalElement = document.getElementById("total").textcontent = total;
+          var subtotal_descElement = document.getElementById("efectivo").textcontent = descuento;
+          var descuentoElement = document.getElementById("devueltas").textcontent = subtotal_desc;
+          var estadoElement = document.getElementById("estado").textcontent = estado;
+  </stript>
+</tbody>
+  
