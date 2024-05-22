@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatble" content="IE-edge">
-    <meta name="viewport" content="width=60mm, initial-scale=1.0"> /cambiar el ancho de papel de 58mm
+    <meta name="viewport" content="width=60mm, initial-scale=1.0"> /*cambiar el ancho de papel de 58mm*/
     <title>Ticket de Compra</title>
     <style>
       boby {
             font-family: tahoma, helvetica, sans-serif;
             margin: 0;
             font-size: 3mm;
-            text-align: center; /centrar todo el contenido
+            text-align: center; /*centrar todo el contenido*/
       }
       #thermal-pos {
             margin: none;
@@ -20,7 +20,7 @@
             margin: 0;
             max-width: 0.5mm;
       .table {
-            border-sollapse: collapse;  //elimina el espacio entre celdas
+            border-sollapse: collapse;  /* Elimina el espacio entre celdas. */
             border-sollapse: collapse; 
             border-spacing: 0;
       }
@@ -34,12 +34,12 @@
             margin-left: 0.5mm;
       }
       .table-footer h2 {
-            margin: 0; //asegurase que no hallan margen dentro de los elemento h2
-            padding: 1mm 0; //ajustar el padding sup e inf
+            margin: 0; /* asegurase que no hallan margen dentro de los elemento h2 */
+            padding: 1mm 0; /* ajustar el padding sup e inf */
       }
       .table-footer h4 {
-            margin: 0; //asegurase que no hallan margen dentro de los elemento h2
-            padding: 1mm 0; //ajustar el padding sup e inf       
+            margin: 0; /* asegurase que no hallan margen dentro de los elemento h2 */
+            padding: 1mm 0; /* ajustar el padding sup e inf  */     
       }
       .saldo-text {
             margin: 0;
@@ -49,7 +49,7 @@
             margin-left: 0.5mm;
       }
         
-      /agregar el estilo para elimina el espacio vertical en las celdas de las filas de la tabla
+      /* agregar el estilo para elimina el espacio vertical en las celdas de las filas de la tabla */
       .table-footer td {
             padding: 0;
             line-height: 1;
@@ -78,10 +78,10 @@
   <bady onload="windows.print()" onfocus="windows.close()">
 
       <script>
-        //Obten los parametros de la url
+        /* Obten los parametros de la url */
         const params = new URLsearchParams(windows.location.search);
 
-        //obten los valores de los parametros
+        /* obten los valores de los parametros */
         var nro_boleta = params.has('boleta') ? params.get('boleta') : "---";
         var nro_mesa = params.has('mesa') ? params.get('mesa') : "---";
         var direc = params.has('direccion') ? params.get('direccion') : "---";
@@ -96,30 +96,30 @@
         var descuento = params.has('descuento') ? params.get('descuento') : " ";
         var estado = params.has('estado') ? params.get('estado') : "--";
 
-        //recibe los datos de los sevicios(separado por comas)
+        /* recibe los datos de los sevicios(separado por comas) */
         var cantidades = params.has('cantidades') ? params.get('cantidades') : "0";
         var descripciones = params.has('servicios') ? params.get('servicios') : "No hay articulos";
         var p_units = params.has('p_unit') ? params.get('p_unit') : "0.00";
 
-        //Formato de 2 decimales
+        /* Formato de 2 decimales */
         propina = parseFloat(propina).toLocaleString('es-ES', { minimunFractionDigits:0 });
         domi = parseFloat(domi).toLocaleString('es-ES', { minimunFractionDigits:0 });
         total = parseFloat(total).toLocaleString('es-ES', { minimunFractionDigits:0 });
         descuento = parseFloat(descuento).toLocaleString('es-ES', { minimunFractionDigits:0 });
         subtotal_desc = parseFloat(subtotal_desc).toLocaleString('es-ES', { minimunFractionDigits:0 });
 
-        //crea una lista de cada columna a partir de las comas.
+        /* crea una lista de cada columna a partir de las comas. */
         cantidades = cantidades.split(",");
         descripciones = descripciones.split(",");
         p_units = p_units.split(",");
 
-        //crea un alista para mostrar en cada fila de la tabla
+        /* crea un alista para mostrar en cada fila de la tabla */
         var result = [];
 
         cantidades.forEach(function(value, id) {
               result[id] = {
                 cantidad: cantidades[id],
-                descripcion: descripciones[id], // + " " + detalles[id], // descomento si deseas concatebar la descripcion
+                descripcion: descripciones[id], // + " " + detalles[id], /* descomento si deseas concatebar la descripcion */
                 precio_unit: parseFloat(p_units[id]).toLocaleString('es-ES', { minimumFractionDigits: 0}),
               };
         });
@@ -158,7 +158,8 @@
             <b span id="hora"></b>
           </p>
       </div>
-      // div class="linea"****************************div--
+    
+      /* div class="linea"****************************div-- */
     
       <table class="table">
         <tbody id="tablaBody">
@@ -168,7 +169,7 @@
             <th><h2>Total</h2></th>
           </tr>
 
-      //falta codigo arriba hasta la linea 547 auto
+      /* falta codigo arriba hasta la linea 547 auto */
           <p class="saldo-text">
             <b><span class="estado-deuda" id="estado"></span></b>
           </p>
@@ -196,24 +197,24 @@
 
           const propinaCell = document.getElementById("propinaCell");
           var propinaElement = document.getElementById("propina");
-                //verifica si domi es igual a N/A
+                /* verifica si domi es igual a N/A */
 
               if (propina == "NaN") {
-                //si domi no es iva muestar el valor
+                /* si domi no es iva muestar el valor */
               propinaCell.style.display = "nome";
                 } else {
-              //si domi no es iva muestra el valor en el elemento
+              /* si domi no es iva muestra el valor en el elemento */
               propinaElement.textcontent = propina;
               }
           const domicilioCell = document.getElementById("domicilioCell");
           var domiElement = document.getElementById("domi");
-              //verifica si domi es igual a N/A
+              /* verifica si domi es igual a N/A */
 
               if (domi == "NaN") {
-                    //si domi es N/A oculat el elemento td que contiene la etiqueta
+                    /* si domi es N/A oculat el elemento td que contiene la etiqueta */
                   domicilioCell.style.display = "none";
             } else {
-                    //si domi no es N/A muestra el valor h2
+                    /* si domi no es N/A muestra el valor h2 */
             domiElement.textcontent = domi;
             }
           var totalElement = document.getElementById("total").textcontent = total;
@@ -222,4 +223,3 @@
           var estadoElement = document.getElementById("estado").textcontent = estado;
   </stript>
 </tbody>
-  
