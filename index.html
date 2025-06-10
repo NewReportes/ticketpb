@@ -1,0 +1,34 @@
+<html>
+  <body>
+    <h2>Boleta de Venta N° <<[id_encuesta]>></h2>
+    <p><strong>Fecha:</strong> <<[fecha]>></p>
+    <p><strong>Cliente:</strong> <<[responsable]>></p>
+
+    <hr>
+
+    <h3>Detalle de Productos</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Marca</th>
+          <th>Cumplimiento Colgate</th>
+          <th>Cumplimiento Elmex</th>
+        </tr>
+      </thead>
+      <tbody>
+        <<Start: [AGREGAR SHARE OF MARKET CATEGORÍAS]>>
+          <tr>
+            <td><<[id_categoria]>> </td>
+            <td><<[marca]>> </td>
+            <td>S/ <<[cumplimiento_colgate]>> </td>
+            <td>S/ <<[cumplimiento_elmex]>> </td>
+          </tr>
+        <<End>>
+      </tbody>
+    </table>
+
+    <br>
+    <p><strong>Cump. Planograma:</strong> S/ <<[CUMPLIMIENTO_PLANOGRAMA]>></p>
+  </body>
+</html>
