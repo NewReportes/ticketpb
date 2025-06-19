@@ -93,7 +93,6 @@
             <hr>
             <p class="text-end fw-bolder fs-3" style="width: 70mm;color:#fff; display: none;">SUBTOTAL: $ <span id="subtotal" class="text-end fw-bolder fs-4"></span></p>
             <p class="text-end fw-bolder fs-3" style="width: 70mm; color:#fff; display: none;"><span id="iva" class="text-end fw-bolder fs-4"></span></p>
-            <p class="text-end fw-bolder fs-6" style="width: 70mm;color:#fff; display: none;">DOMICILIO: $ <span id="domicilio" class="text-end fw-bolder fs-4"></span></p>
           <p class="text-end fw-bolder fs-3" style="width: 70mm;color:#fff; display: none;">TOTAL A PAGAR: $ <span id="total" class="text-end fw-bolder fs-3"></span></p>
          <br>
          <div class="modal-footer justify-content-center"><br>
@@ -117,7 +116,7 @@
       // Obtener los parámetros de la URL
       var comanda = obtenerParametro('id_boleta');
       var fecha = obtenerParametro('fecha');
-      var resumen = obtenerParametro('resumen');
+      var resumen = obtenerParametro('resumen1');
       var cliente = obtenerParametro('vendedor');
       var subtotal = obtenerParametro('subtotal');
       var propina = obtenerParametro('iva');
@@ -130,7 +129,7 @@
   
       // Escribir la información en el documento HTML
       window.onload = function() {
-          document.getElementById('comanda').innerHTML = comanda;
+          document.getElementById('id_boleta').innerHTML = id_boleta;
           document.getElementById('fecha').innerHTML = fecha;
           // Mostrar cada línea del resumen en un párrafo separado
           lineasResumen.forEach(function(linea) {
@@ -142,7 +141,7 @@
               document.getElementById('subtotal').innerHTML = subtotal;
               //document.getElementById('propina').innerHTML = propina;
               document.getElementById('total').innerHTML = total;
-              document.getElementById('domicilio').innerHTML = domicilio;
+              //document.getElementById('domicilio').innerHTML = domicilio;
               document.getElementById('iva').innerHTML = mesa;
           });
           // Imprimir automáticamente
