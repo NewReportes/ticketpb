@@ -114,15 +114,15 @@
       }
   
       // Obtener los parámetros de la URL
-      var comanda = obtenerParametro('id_boleta');
+      var id_boleta = obtenerParametro('id_boleta');
       var fecha = obtenerParametro('fecha');
-      var resumen = obtenerParametro('resumen1');
-      var cliente = obtenerParametro('vendedor');
+      var resumen1 = obtenerParametro('resumen1');
+      var vendedor = obtenerParametro('vendedor');
       var subtotal = obtenerParametro('subtotal');
-      var propina = obtenerParametro('iva');
+      var iva = obtenerParametro('iva');
       var total = obtenerParametro('total');
       //var apagar = obtenerParametro('apagar');
-      var mesa = obtenerParametro('hora');
+      var hora = obtenerParametro('hora');
   
       // Convertir la cadena resumen en un array separado por saltos de línea
       var lineasResumen = resumen.split('\n');
@@ -137,12 +137,12 @@
               parrafo.classList.add('fs-5', 'text-uppercase', 'text-start');
               parrafo.innerHTML = linea;
               document.getElementById('resumen1').appendChild(parrafo);
-              document.getElementById('vendedor').innerHTML = cliente;
+              document.getElementById('vendedor').innerHTML = vendedor;
               document.getElementById('subtotal').innerHTML = subtotal;
               //document.getElementById('propina').innerHTML = propina;
               document.getElementById('total').innerHTML = total;
               //document.getElementById('domicilio').innerHTML = domicilio;
-              document.getElementById('iva').innerHTML = mesa;
+              document.getElementById('iva').innerHTML = iva;
           });
           // Imprimir automáticamente
         window.print();
