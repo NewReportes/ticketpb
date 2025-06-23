@@ -1,166 +1,110 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
+<html long="es">
+<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Comanda</title>
-  <link rel="stylesheet" href="bootstrap-print.min.css" media="print">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <script src="https://kit.fontawesome.com/3eaaca7ef6.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
 
-  <style type="text/css" media="print">
-      .printbutton{
-            display: none;
-      }
-      @page {
-        size: 80mm 300mm;
-        margin: 0;
-      }
-      body {
-        width: 100%;
-        height:300mm;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        font-size: 10px;
-        color: #000;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      img {
-        width: 50mm;
-        display: block;
-        margin: 0 auto 5mm;
-      }
-      .cuadro {
-        border: 1px dashed #000;
-        margin: 5px 0;
-        padding: 5px;
-      }
-      p, span {
-        margin: 0;
-        padding: 0;
-        line-height: 1.2;
-      }
-      .text-end {
-        text-align: right;
-      }
-      hr {
-        border: 0;
-        border-top: 1px solid #000;
-        margin: 5px 0;
-      }
-      .modal-footer {
-        text-align: center;
-        margin-top: 10px;
-      }
-      .oculto-impresion {
-        display: none !important;
-      }
-      </style>
-       <style>
-            .printbutton {
-                cursor: pointer;
-            }
-        </style>
-  <script src="script.js"></script>
-  <script src="./ConectorEscposAndroid.js" type="text/javascript"></script>
-  <script src="./main.js" type="text/javascript"></script>
+    <style>
+      *{
+    font-size: 12px;
+    font-family: 'Times New Roman';
+    
+}
+
+td,
+th,
+tr,
+table {
+    
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}
+
+td.producto,
+th.producto {
+    width: 75px;
+    max-width: 75px;
+}
+
+td.cantidad,
+th.cantidad {
+    width: 40px;
+    max-width: 40px;
+    word-break: break-all;
+}
+
+td.precio,
+th.precio {
+    width: 40px;
+    max-width: 40px;
+    word-break: break-all;
+}
+
+.centrado {
+    text-align: center;
+    align-content: center;
+}
+
+.ticket {
+    width: 155px;
+    max-width: 155px;
+}
+
+img {
+    max-width: inherit;
+    width: inherit;
+}
+</style>
 </head>
-<body class="fw-bold">
-      
-<center id="ticket"> 
-<div class="container">
-      <input type="button" value="Imprimir" class="printbutton">
-      <div class="row">
-            <div class="col-12">
-            <div class="cuadro"><br>
-                  <p class="fs-2">
-                        <i class="fa-solid fa-anchor"></i> El Corsario
-                  </p> 
-                  
-            </div>
-            <p class="fs-3"><i class="fa-regular fa-file-lines "></i> Comanda: <span id="id_boleta" class="fs-2"></span></p>
-            <p class="fs-3"><i class="fa-regular fa-calendar "></i> Fecha: <span id="fecha" class="fs-2"></span></p> 
-            <p class="fs-3"><i class="fa-solid fa-chair"> </i> <span id="hora" class="fs-2"></span></p>  
-            <p class="fs-3"><i class="fa-solid fa-users-line "></i> Cliente: <span id="vendedor" class="fs-2"></span></p>  
-            <p class=" fw-bolder fs-3"><i class="fa-solid fa-fish-fins "></i> Pedido</p>
-              <hr>
-            <span id="resumen" class="fs-4"></span>
-            <hr>
-            <p class="text-end fw-bolder fs-3" style="width: 70mm;color:#fff; display: none;">SUBTOTAL: $ <span id="subtotal" class="text-end fw-bolder fs-4"></span></p>
-            <p class="text-end fw-bolder fs-3" style="width: 70mm; color:#fff; display: none;"><span id="iva" class="text-end fw-bolder fs-4"></span></p>
-          <p class="text-end fw-bolder fs-3" style="width: 70mm;color:#fff; display: none;">TOTAL A PAGAR: $ <span id="total" class="text-end fw-bolder fs-3"></span></p>
-         <br>
-         <div class="modal-footer justify-content-center"><br>
+    <body>
+        <div class="ticket">
+            <img
+                src="https://yt3.ggpht.com/-3BKTe8YFlbA/AAAAAAAAAAI/AAAAAAAAAAA/ad0jqQ4IkGE/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+                alt="Logotipo">
+            <p class="centrado">Parzibyte's blog
+                <br>New New York
+                <br>23/08/2017 08:22 a.m.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="cantidad">CANT</th>
+                        <th class="producto">PRODUCTO</th>
+                        <th class="precio">$$</th>
+                    </tr>
+                </thead>
+                <tr>
+  <tbody id=filas >
+ </tbody>
+ </tr>
+            </table>
+            <p class="centrado">¡GRACIAS POR SU COMPRA!
+                <br>parzibyte.me</p>
+        </div>
+        <script>
 
-               <br>
-            </div> 
-      </div><br><br><hr><br>
-      <small class="fs-6">Desarrollado por Marcos Alberto Castro Abarca E.I.R.L.</small>
-      <br><br><br>
-</div>
-</center>
-<script>
-      // Función para obtener parámetros de la URL
-      function obtenerParametro(nombre) {
-          nombre = nombre.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-          var regex = new RegExp('[\\?&]' + nombre + '=([^&#]*)');
-          var resultados = regex.exec(location.search);
-          return resultados === null ? '' : decodeURIComponent(resultados[1].replace(/\+/g, ' '));
-      }
-  
-      // Obtener los parámetros de la URL
-      var id_boleta = obtenerParametro('id_boleta');
-      var fecha = obtenerParametro('fecha');
-      var resumen1 = obtenerParametro('resumen1');
-      var vendedor = obtenerParametro('vendedor');
-      var subtotal = obtenerParametro('subtotal');
-      var iva = obtenerParametro('iva');
-      var total = obtenerParametro('total');
-      //var apagar = obtenerParametro('apagar');
-      var hora = obtenerParametro('hora');
-  
-      // Convertir la cadena resumen en un array separado por saltos de línea
-      var lineasResumen = resumen.split('\n');
-  
-      // Escribir la información en el documento HTML
-      window.onload = function() {
-          document.getElementById('id_boleta').innerHTML = id_boleta;
-          document.getElementById('fecha').innerHTML = fecha;
-          // Mostrar cada línea del resumen en un párrafo separado
-          lineasResumen.forEach(function(linea) {
-              var parrafo = document.createElement('p');
-              parrafo.classList.add('fs-5', 'text-uppercase', 'text-start');
-              parrafo.innerHTML = linea;
-              document.getElementById('resumen1').appendChild(parrafo);
-              document.getElementById('vendedor').innerHTML = vendedor;
-              document.getElementById('subtotal').innerHTML = subtotal;
-              //document.getElementById('propina').innerHTML = propina;
-              document.getElementById('total').innerHTML = total;
-              //document.getElementById('domicilio').innerHTML = domicilio;
-              document.getElementById('iva').innerHTML = iva;
-          });
-          // Imprimir automáticamente
-        window.print();
+var now = new Date(); //optiene hora y fecha actual
+var datetime = now.toLocaleDateString() + " " + now.toLocaleTimeString();
 
-// Cerrar la ventana después de imprimir
-window.onafterprint = function() {
-    window.close();
-};
-      };
+  // Obtener los parámetros de la URL
+            
+  const pedido = obtenerParametro('pedido') || 'Pedido Desconocido';
+  const filas = obtenerParametro('filas') || 'Filas Desconocido';
+  const totalventa = obtenerParametro('totalventa') || 'Totalventa Desconocido';
+  const impto = obtenerParametro('impto') || 'Impto Desconocido';
+  const subtotal = obtenerParametro('subtotal') || 'Subtotal Desconocido';
+  const codigo = obtenerParametro('codigo') || 'Codigo Desconocido';
+  const nomcliente = obtenerParametro('nomcliente') || 'Cliente Desconocido';
 
-  </script>
-   <script>
-      document.querySelectorAll('.printbutton').forEach(function(element) {
-          element.addEventListener('click', function() {
-              print();
-          });
-      });
-  </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+            // inserta el nro de factura
+
+document.getElementById('filas').innerHTML= 'Manzana Verde Exportacion';
+document.getElementById('totalventa').innerHTML= 'Total venta <?= totalventa ?>';
+document.getElementById('impto').innerHTML= 'Total Impto <?= impto ?>';
+document.getElementById('subtotal').innerHTML= 'Subtotal <?= subtotal ?>';
+document.getElementById('codigo').innerHTML= 'RECIBO # <?= codigo ?> <br>' +datetime;
+document.getElementById('nomcliente').innerHTML= 'Cliente: <?= nomcliente ?>';
+ 
+            
+</script>
+    </body>
 </html>
