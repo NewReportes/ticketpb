@@ -107,7 +107,10 @@ var datetime = now.toLocaleDateString() + " " + now.toLocaleTimeString();
   const codigo = obtenerParametro('codigo');
   const nomcliente = obtenerParametro('nomcliente');
 
-            // inserta el nro de factura
+// Convertir la cadena resumen en un array separado por saltos de línea
+	   var lineasResumen1 = filas.split('\n');
+                    
+// inserta el nro de factura
  window.onload = function() {
 document.getElementById('filas').innerHTML=  filas;
 document.getElementById('totalventa').innerHTML= totalventa;
@@ -115,6 +118,14 @@ document.getElementById('impto').innerHTML= impto;
 document.getElementById('subtotal').innerHTML= Subtotal;
 document.getElementById('codigo').innerHTML= codigo;
 document.getElementById('nomcliente').innerHTML= nomcliente;
+
+ // Mostrar cada línea del resumen en un párrafo separado
+		    
+		   lineasResumen1.forEach(function(linea1) {
+                   var parrafo = document.createElement('p');
+                   parrafo.classList.add('fs-5', 'text-uppercase', 'text-start');
+                   parrafo.innerHTML = linea1;
+                    document.getElementById('filas').appendChild(parrafo);});
  }
             
 </script>
