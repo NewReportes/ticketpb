@@ -87,7 +87,13 @@ img {
                 <br>parzibyte.me</p>
         </div>
         <script>
-
+// Función para obtener parámetros de la URl
+            function obtenerParametro(nombre) {
+                nombre = nombre.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + nombre + '=([^&#]*)');
+                var resultados = regex.exec(location.search);
+                return resultados === null ? '' : decodeURIComponent(resultados[1].replace(/\+/g, ''));
+                    
 var now = new Date(); //optiene hora y fecha actual
 var datetime = now.toLocaleDateString() + " " + now.toLocaleTimeString();
 
@@ -102,14 +108,14 @@ var datetime = now.toLocaleDateString() + " " + now.toLocaleTimeString();
   const nomcliente = obtenerParametro('nomcliente');
 
             // inserta el nro de factura
-
+ window.onload = function() {
 document.getElementById('filas').innerHTML=  filas;
 document.getElementById('totalventa').innerHTML= totalventa;
 document.getElementById('impto').innerHTML= impto;
 document.getElementById('subtotal').innerHTML= Subtotal;
 document.getElementById('codigo').innerHTML= codigo;
 document.getElementById('nomcliente').innerHTML= nomcliente;
- 
+ }
             
 </script>
     </body>
